@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #C3447A;
+}
+
+button {    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40vh;
+    width: 10rem;
+    height: 6rem;
+    color: #C3447A;
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+ }
+
+.negative {
+    background-color: #e6669d;
+}
