@@ -1,5 +1,3 @@
-document.querySelector('button').addEventListener('click', myEfficientFn);
-
 function debounce(func, wait, immediate) {
 	var timeout;
 	return function() {
@@ -19,3 +17,5 @@ var myEfficientFn = debounce(function clickedFunction(event) {
     console.log('click');
     document.body.classList.toggle('negative');
 }, 500);
+
+document.querySelector('button').addEventListener('click', myEfficientFn);
