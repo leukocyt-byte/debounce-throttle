@@ -1,21 +1,18 @@
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
 };
 
-var myEfficientFn = debounce(function clickedFunction(event) {
-    console.log('click');
-    document.body.classList.toggle('negative');
-}, 500);
-
-document.querySelector('button').addEventListener('click', myEfficientFn);
+document.querySelector("button").addEventListener("click", throttle(function myEfficientFn(event) {
+    console.log("click");
+    document.body.classList.toggle("negative");
+  }, 2000)
+);
